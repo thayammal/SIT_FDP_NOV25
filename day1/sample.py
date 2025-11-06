@@ -1,0 +1,1 @@
+print('Hello SIT faculty and students!')
