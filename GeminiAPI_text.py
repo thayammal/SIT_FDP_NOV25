@@ -95,3 +95,4 @@ new_sentences = [
 for s in new_sentences:
     pred = gemini_classify(s, categories)
     print(f"Text: {s}\nPredicted Category: {pred}\n")
+    

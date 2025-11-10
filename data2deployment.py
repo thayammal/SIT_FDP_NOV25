@@ -16,11 +16,11 @@ print(data.info())
 
 # # Numerical Data Statistics 
 num_features = data.select_dtypes(include='number')
-# print(num_features.describe())
+print(num_features.describe())
 
 # # #categorical data statitics
 cat_features = data.select_dtypes(include='object')
-# print(cat_features.describe())
+print(cat_features.describe())
 
 
 # # #Graphical summaries
@@ -96,16 +96,16 @@ for train_index, test_index in sss.split(data, data["Placement"]):
   print(strat_train_set.head(), strat_test_set.head())
 
 
-#print(strat_train_set.describe())
-#print(strat_test_set.describe())
+print(strat_train_set.describe())
+print(strat_test_set.describe())
 
-attribute_list = ['IQ', 'Prev_Sem_Result', 'Academic_Performance', 'Extra_Curricular_Score','Communication_Skills','Projects_Completed']
+# attribute_list = ['IQ', 'Prev_Sem_Result', 'Academic_Performance', 'Extra_Curricular_Score','Communication_Skills','Projects_Completed']
 
-sns.pairplot(strat_train_set[attribute_list])
-plt.show()
+# sns.pairplot(strat_train_set[attribute_list])
+# plt.show()
 
-sns.pairplot(strat_test_set[attribute_list])
-plt.show()
+# sns.pairplot(strat_test_set[attribute_list])
+# plt.show()
 
 
 
@@ -116,14 +116,14 @@ data_features = strat_train_set.drop("Placement", axis=1)
 # # Copy the label list
 data_labels = strat_train_set['Placement'].copy()
 
-# print(data_features.head())
-# print(data_labels.head())
+# # print(data_features.head())
+# # print(data_labels.head())
 
 
 
-# #4.2 Data cleaning
-# #check the missing values
-print(data_features.isna().sum())
+# # #4.2 Data cleaning
+# # #check the missing values
+# print(data_features.isna().sum())
 
 
 from sklearn.impute import SimpleImputer   #scikit-learn
@@ -177,14 +177,14 @@ y_test = strat_test_set["Placement"].copy()
 y_pred = lin_reg_model.predict(X_test)
 
 # # # Calculate accuracy
-# from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 acc = accuracy_score(y_test, y_pred)
-# print("Test set accuracy:", acc)
+print("Test set accuracy:", acc)
 
-# # # # More detailed metrics
-# # # print(classification_report(y_test, y_pred))
-# # # print(confusion_matrix(y_test, y_pred))
+# # # # # More detailed metrics
+# # # # print(classification_report(y_test, y_pred))
+# # # # print(confusion_matrix(y_test, y_pred))
 
 
 #save the model .h5. pkl
